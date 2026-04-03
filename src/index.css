@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", "Space Grotesk", sans-serif;
+  
+  --color-purple-neon: #a855f7;
+  --color-purple-dark: #6d28d9;
+  --color-pink-neon: #ec4899;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-bar: pulse-bar 1.2s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pulse-bar {
+    0%, 100% { transform: scaleX(0.3); opacity: 0.6; }
+    50% { transform: scaleX(1); opacity: 1; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[#05030a] text-[#e9e5ff] font-sans antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, .display {
+    @apply font-display font-extrabold tracking-tight;
+  }
+}
+
+@layer components {
+  .hero-bg {
+    background: radial-gradient(1200px 800px at 50% -10%, rgba(168,85,247,0.25), transparent 60%),
+                radial-gradient(800px 600px at 90% 20%, rgba(236,72,153,0.18), transparent 50%),
+                radial-gradient(900px 700px at 10% 30%, rgba(109,40,217,0.22), transparent 55%),
+                #05030a;
+  }
+
+  .glass {
+    @apply bg-[#110c22]/60 backdrop-blur-xl border border-purple-500/15;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 20px rgba(168,85,247,0.8), 0 0 40px rgba(168,85,247,0.5), 0 0 80px rgba(168,85,247,0.3);
+  }
+
+  .neon-box {
+    box-shadow: 0 0 30px rgba(168,85,247,0.25), inset 0 0 20px rgba(168,85,247,0.08);
+  }
+
+  .grid-bg {
+    background-image: 
+        linear-gradient(rgba(168,85,247,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168,85,247,0.07) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
